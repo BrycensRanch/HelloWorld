@@ -40,23 +40,23 @@ namespace
       /// <summary>IsDirtyString: true</summary>
       public const string IsDirtyString = @"true";
 
-      /// <summary>Repository URL: </summary>
-      public const string RepositoryUrl = @"";
+      /// <summary>Repository URL: https://github.com/BrycensRanch/HelloWorld.git</summary>
+      public const string RepositoryUrl = @"https://github.com/BrycensRanch/HelloWorld.git";
 
       /// <summary>Branch: master</summary>
       public const string Branch = @"master";
 
-      /// <summary>Commit: 0000000</summary>
-      public const string Commit = @"0000000";
+      /// <summary>Commit: f227688</summary>
+      public const string Commit = @"f227688";
 
-      /// <summary>Sha: 0000000</summary>
-      public const string Sha = @"0000000";
+      /// <summary>Sha: f227688e1338994914eff0d0ed1a7eab82dea3f2</summary>
+      public const string Sha = @"f227688e1338994914eff0d0ed1a7eab82dea3f2";
 
-      /// <summary>Commit date: 0001-01-01T00:00:00+00:00</summary>
-      public const string CommitDate = @"0001-01-01T00:00:00+00:00";
+      /// <summary>Commit date: 2023-11-17T08:38:36-05:00</summary>
+      public const string CommitDate = @"2023-11-17T08:38:36-05:00";
 
-      /// <summary>Commits on top of base version: 0</summary>
-      public const string Commits = @"0";
+      /// <summary>Commits on top of base version: 6</summary>
+      public const string Commits = @"6";
 
       /// <summary>Tag: </summary>
       public const string Tag = @"";
@@ -86,8 +86,8 @@ namespace
         /// <summary>Minor: 0</summary>
         public const string Minor = @"0";
 
-        /// <summary>Patch: 0</summary>
-        public const string Patch = @"0";
+        /// <summary>Patch: 6</summary>
+        public const string Patch = @"6";
 
         /// <summary>Label: </summary>
         public const string Label = @"";
