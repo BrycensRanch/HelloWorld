@@ -21,7 +21,7 @@ jobs:
     - name: .NET Setup
       uses: zyactions/dotnet-setup@v1
       with:
-        dotnet-version: '8.0.0'
+        dotnet-version: 8.0.x
     - name: Restore dependencies
       uses: zyactions/dotnet-restore@v1
     - name: Build
