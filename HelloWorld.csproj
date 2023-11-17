@@ -11,6 +11,10 @@
     <PackageReference Include="GitInfo" Version="2.2.0" />
     <PackageReference Include="Hardware.Info" Version="100.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include=".github\" />
+  </ItemGroup>
   <PropertyGroup>
     <!-- enabled aot publishing -->
     <PublishAot>true</PublishAot>
