@@ -1,0 +1,10 @@
+.github
+Dockerfile
+bin
+.idea
+README.md
+.gitignore
+obj
+
+# GitInfo dependency needs git info to embed into our native binary
+#.git

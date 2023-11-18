@@ -38,6 +38,8 @@ jobs:
       run: dotnet publish -c release 
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Build Dockerfile
+      run: docker build . -t helloworld
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
       with:
