@@ -39,6 +39,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Build Dockerfile
+      if: matrix.os == 'ubuntu-latest'
       run: docker build . -t helloworld
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
