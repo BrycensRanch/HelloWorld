@@ -15,7 +15,6 @@ public class UserAgeHandler
                 return;
             default:
                 Console.WriteLine($"You inputted {userAge}");
-                Console.WriteLine("I am finished running.");
                 break;
         }
     }

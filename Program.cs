@@ -24,4 +24,8 @@ try {
 var handler = new UserAgeHandler();
 handler.Handle(userAge);
 
+Console.WriteLine("Ok now here's some hardware info about the computer running this program. This may fail on Microsoft Windows...");
+
 new HardwareHandler().Handle();
+
+Console.WriteLine("I am finished running.");
