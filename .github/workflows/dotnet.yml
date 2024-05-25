@@ -44,5 +44,5 @@ jobs:
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Build
+        name: Build ${{ runner.os }}
         path: bin/release
