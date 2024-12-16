@@ -1,11 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 
 using HelloWorld;
 
 Console.WriteLine("Hello, World!");
 Console.WriteLine(Environment.OSVersion);
 Console.WriteLine(Environment.GetEnvironmentVariable("PATH"));
-Console.WriteLine(ThisAssembly.Git.Commit);
 Console.WriteLine("WHAT IS UR AGE");
 var result = Console.ReadLine();
 
