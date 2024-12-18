@@ -20,9 +20,10 @@
 
     <!-- reduces binary size, no debug symbols -->
     <StripSymbols>true</StripSymbols>
-    <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
-      <TrimmerRootAssembly Include="System.Management" />
-    </ItemGroup>
   </PropertyGroup>
+
+  <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+    <TrimmerRootAssembly Include="System.Management" />
+  </ItemGroup>
 
 </Project>
