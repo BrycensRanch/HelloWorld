@@ -5,9 +5,6 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <TrimmerRootAssembly Include="System.Management"/>
-
-
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +20,9 @@
 
     <!-- reduces binary size, no debug symbols -->
     <StripSymbols>true</StripSymbols>
+    <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+      <TrimmerRootAssembly Include="System.Management" />
+    </ItemGroup>
   </PropertyGroup>
 
 </Project>
