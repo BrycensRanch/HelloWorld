@@ -42,7 +42,7 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
       run: docker build . -t helloworld
     - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: Build ${{ runner.os }}
         path: bin/release
