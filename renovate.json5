@@ -17,9 +17,13 @@
   ],
   osvVulnerabilityAlerts: true,
   vulnerabilityAlerts: {
-    labels: ['urgent'],
+    labels: [
+      'urgent',
+    ],
     minimumReleaseAge: null,
-    automergeSchedule: ['at any time']
+    automergeSchedule: [
+      'at any time',
+    ],
   },
   rebaseWhen: 'conflicted',
   prConcurrentLimit: 5,
@@ -30,14 +34,14 @@
   branchPrefixOld: 'renovate/',
   minimumReleaseAge: '14 days',
   timezone: 'America/New_York',
-  platformCommit: true,
+  platformCommit: 'enabled',
   platformAutomerge: true,
   customManagers: [
     {
       customType: 'regex',
-      fileMatch: [
-        '^\\.github/workflows/.*\\.yml$',
-        '^\\.github/actions/.*\\.yml$',
+      managerFilePatterns: [
+        '/^\\.github/workflows/.*\\.yml$/',
+        '/^\\.github/actions/.*\\.yml$/',
       ],
       matchStrings: [
         '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s+.*?version\\s+(?<currentValue>.*)\\s',
@@ -127,14 +131,16 @@
     },
     {
       description: 'Shorter release age for Avalonia packages to get user-facing bug fixes faster',
-      matchDepNames: ['*Avalonia*'],
+      matchDepNames: [
+        '*Avalonia*',
+      ],
       minimumReleaseAge: '4 days',
     },
     {
       description: 'Group all Roslyn analyzers into a single weekly Monday update',
       matchDepNames: [
         '/.*[Aa]nalyzer.*/',
-        'SharpSource'
+        'SharpSource',
       ],
       groupName: 'Roslyn Analyzers',
       schedule: [
@@ -150,10 +156,10 @@
         'Soenneker.Utils.AutoBogus',
         'Testably.Abstractions.Testing',
         '/^Testcontainers/i',
-        '/^TngTech\.ArchUnitNET/i',
+        '/^TngTech.ArchUnitNET/i',
         '/^TUnit/i',
-        '/^Verify\./i',
-        '/^WireMock\.Net/i',
+        '/^Verify./i',
+        '/^WireMock.Net/i',
         '/.*TUnit/i',
       ],
       groupName: 'Testing Infrastructure',
