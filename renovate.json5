@@ -1,0 +1,184 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:best-practices',
+    ':semanticCommitTypeAll(build)',
+    ':pinVersions',
+    'abandonments:recommended',
+  ],
+  prCreation: 'not-pending',
+  semanticCommits: 'enabled',
+  automerge: true,
+  labels: [
+    'dependencies',
+  ],
+  automergeSchedule: [
+    'before 8am every weekday',
+  ],
+  osvVulnerabilityAlerts: true,
+  vulnerabilityAlerts: {
+    labels: ['urgent'],
+  },
+  rebaseWhen: 'conflicted',
+  prConcurrentLimit: 5,
+  prHourlyLimit: 2,
+  prNotPendingHours: 1,
+  branchConcurrentLimit: 5,
+  branchPrefix: 'dep/',
+  branchPrefixOld: 'renovate/',
+  minimumReleaseAge: '14 days',
+  timezone: 'America/New_York',
+  platformCommit: true,
+  platformAutomerge: true,
+  customManagers: [
+    {
+      customType: 'regex',
+      fileMatch: [
+        '^\\.github/workflows/.*\\.yml$',
+        '^\\.github/actions/.*\\.yml$',
+      ],
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s+.*?version\\s+(?<currentValue>.*)\\s',
+        '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s+.*?/(?<currentValue>.*)\\s',
+      ],
+    },
+  ],
+  packageRules: [
+    {
+      matchDepTypes: [
+        'action',
+      ],
+      labels: [
+        'actions',
+      ],
+      pinDigests: true,
+    },
+    {
+      matchDepNames: [
+        '.*[Dd]otnet.*',
+        '*dotnet*',
+        'Microsoft.Extensions*',
+        'Microsoft.Data*',
+      ],
+      minimumReleaseAge: '4 days',
+    },
+    {
+      matchDepNames: [
+        '.*[Ww]ix.*',
+      ],
+      labels: [
+        'windows',
+      ],
+    },
+    {
+      matchDepNames: [
+        '.*[Ll]inux.*',
+      ],
+      labels: [
+        'linux',
+      ],
+    },
+    {
+      matchDepNames: [
+        '.*[Mm]ac[Oo]s.*',
+        '.*[Oo]sx.*',
+        '.*[Dd]arwin.*',
+        '.*[Aa]pple.*',
+        'runtime.osx.*',
+      ],
+      labels: [
+        'macOS',
+      ],
+    },
+    {
+      matchDepNames: [
+        'dotnet-sdk',
+      ],
+      enabled: false,
+    },
+    {
+      description: "Merge Brycen's amazing packages soon as possible",
+      matchDepNames: [
+        '*BrycensRanch*',
+        'WaylandSharper',
+      ],
+      minimumReleaseAge: '1 day',
+    },
+    {
+      matchDepNames: [
+        '*Wayland*',
+        '*DBus*',
+      ],
+      labels: [
+        'linux',
+      ],
+    },
+    {
+      matchDepNames: [
+        'xcap',
+        '*osx*',
+        '*uniffi*',
+      ],
+      labels: [
+        'macOS',
+      ],
+    },
+    {
+      description: 'Bypass minimum release age for security vulnerability patches',
+      matchUpdateTypes: ['patch', 'minor'],
+      matchCurrentVersion: '<!*>',
+      vulnerabilitySeverity: 'high',
+      minimumReleaseAge: null,
+      automergeSchedule: ['at any time']
+    },
+    {
+      description: 'Shorter release age for Avalonia packages to get user-facing bug fixes faster',
+      matchDepNames: ['*Avalonia*'],
+      minimumReleaseAge: '4 days',
+    },
+    {
+      description: 'Group all Roslyn analyzers into a single weekly Monday update',
+      matchDepNames: [
+        '/.*[Aa]nalyzer.*/',
+        'SharpSource'
+      ],
+      groupName: 'Roslyn Analyzers',
+      schedule: [
+        'before 8am on Monday',
+      ],
+    },
+    {
+      description: 'Group all testing tools, mocks, and snapshot frameworks for Testing Tuesday',
+      matchDepNames: [
+        'BenchmarkDotNet',
+        'CsCheck',
+        'NBomber',
+        'Soenneker.Utils.AutoBogus',
+        'Testably.Abstractions.Testing',
+        '/^Testcontainers/i',
+        '/^TngTech\.ArchUnitNET/i',
+        '/^TUnit/i',
+        '/^Verify\./i',
+        '/^WireMock\.Net/i',
+        '/.*TUnit/i',
+      ],
+      groupName: 'Testing Infrastructure',
+      schedule: [
+        'before 8am on Tuesday',
+      ],
+    },
+    {
+      matchDepNames: [
+        '.*[Ww]indows.*',
+        '*Vortice*',
+        '*PowerShell*',
+        '*Win32*',
+        '*runtime.win*',
+        '*win64*',
+      ],
+      labels: [
+        'windows',
+      ],
+    },
+  ],
+}
