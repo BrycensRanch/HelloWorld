@@ -18,6 +18,8 @@
   osvVulnerabilityAlerts: true,
   vulnerabilityAlerts: {
     labels: ['urgent'],
+    minimumReleaseAge: null,
+    automergeSchedule: ['at any time']
   },
   rebaseWhen: 'conflicted',
   prConcurrentLimit: 5,
@@ -122,14 +124,6 @@
       labels: [
         'macOS',
       ],
-    },
-    {
-      description: 'Bypass minimum release age for security vulnerability patches',
-      matchUpdateTypes: ['patch', 'minor'],
-      matchCurrentVersion: '<!*>',
-      vulnerabilitySeverity: 'high',
-      minimumReleaseAge: null,
-      automergeSchedule: ['at any time']
     },
     {
       description: 'Shorter release age for Avalonia packages to get user-facing bug fixes faster',
